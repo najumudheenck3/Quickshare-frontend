@@ -8,7 +8,7 @@ export const signUp = async (formData) => {
     return data
   
   } catch (error) {
-    toast.error('errooor');
+    toast.error('somethinng went wrong');
   }
 }
 export const logIn = async (formData) => {
