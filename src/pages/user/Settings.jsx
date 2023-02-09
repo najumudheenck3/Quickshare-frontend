@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { setPrivateAccount } from "../../api/user/userRequest";
+import ExitToAppOutlinedIcon from "@mui/icons-material/ExitToAppOutlined";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const [enabled, setEnabled] = useState(user?.userDetails.private);
   const handlePrivateAccount = async () => {
     await setPrivateAccount();
@@ -33,6 +36,16 @@ const Settings = () => {
             <span className="ml-2 text-sm font-medium text-gray-900">ON</span>
           </label>
         </div>
+      </div>
+      <div
+        className="flex items-center gap-x-3 cursor-pointer w-28 mt-6 hover:bg-slate-300 h-12 p-2 rounded"
+        onClick={() => {
+          localStorage.clear();
+          navigate('/login')
+        }}
+      >
+        <ExitToAppOutlinedIcon />
+        <span>Logout</span>
       </div>
     </div>
   );

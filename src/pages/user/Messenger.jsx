@@ -24,7 +24,8 @@ const Messenger = () => {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+
+    socket.current = io("https://chat.giftto.online");
     socket.current.on("getMessage",data=>{
       setArrivalMessage({
         sender:data.senderId,
