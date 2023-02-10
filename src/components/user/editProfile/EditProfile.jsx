@@ -19,8 +19,7 @@ const EditProfile = () => {
   useEffect(() => {
     async function getUserInfo() {
       userData = await getUserProfile(userId);
-      setUserInfo(userData[0].userId);
-      console.log(userData, "ini edit cheythal mathi");
+      setUserInfo(userData?.user);
     }
     getUserInfo();
   }, []);
