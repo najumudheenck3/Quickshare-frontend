@@ -28,7 +28,7 @@ const Messenger = () => {
     socket.current = io("https://chat.giftto.online");
     socket.current.on("getMessage",data=>{
       setArrivalMessage({
-        sender:data.senderId,
+        sender:data.senderId, 
         text:data.text,
         createdAt:Date.now()
       })
