@@ -25,7 +25,7 @@ const Messenger = () => {
 
   useEffect(() => {
 
-    socket.current = io("https://chat.giftto.online");
+    socket.current = io("https://quicksharehide.giftto.online");
     socket.current.on("getMessage",data=>{
       setArrivalMessage({
         sender:data.senderId, 
