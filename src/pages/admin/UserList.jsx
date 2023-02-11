@@ -96,7 +96,7 @@ const UserList = () => {
               >
                 <img
                   className="w-10 h-10 rounded-full object-cover"
-                  src="https://st4.depositphotos.com/5989284/20550/i/450/depositphotos_205505676-stock-photo-portrait-uncertain-young-stylish-stubble.jpg"
+                  src={user?.profileImage}
                   alt=""
                 />
                 <div className="pl-3">
