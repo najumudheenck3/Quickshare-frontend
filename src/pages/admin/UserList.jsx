@@ -96,7 +96,9 @@ const UserList = () => {
               >
                 <img
                   className="w-10 h-10 rounded-full object-cover"
-                  src={user?.profileImage}
+                  src={ user?.profileImage
+                    ? user?.profileImage
+                    : "https://static.vecteezy.com/system/resources/previews/013/042/571/original/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg"}
                   alt=""
                 />
                 <div className="pl-3">
