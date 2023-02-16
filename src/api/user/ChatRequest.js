@@ -3,12 +3,7 @@ import { userApi } from '../../utils/apiCall';
 
 export const getAllConversations = async (userId) => {
     try {
-        const { data } = await userApi.get(`/get-conversation/${userId}`, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.get(`/get-conversation/${userId}`)
         if (data.success) {
             return data.conversation
         }
@@ -19,12 +14,7 @@ export const getAllConversations = async (userId) => {
 
 export const getChatUser = async (friendId) => {
     try {
-        const { data } = await userApi.get(`/get-chat-user/${friendId}`, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.get(`/get-chat-user/${friendId}`)
         if (data.success) {
             return data.data
         }
@@ -36,12 +26,7 @@ export const getChatUser = async (friendId) => {
 
 export const getAllMessages=async(currentChatId)=>{
     try {
-        const { data } = await userApi.get(`/get-message/${currentChatId}`, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.get(`/get-message/${currentChatId}`)
         if (data.success) {
             return data.allMessages
         }
@@ -52,12 +37,7 @@ export const getAllMessages=async(currentChatId)=>{
 
 export const addNewMessage=async(formData)=>{
     try {
-        const {data}=await userApi.post('/add-message',formData,{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.post('/add-message',formData)
         if (data.success) {
             return data.saveMessage
         }

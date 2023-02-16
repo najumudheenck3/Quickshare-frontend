@@ -4,12 +4,7 @@ import { userApi } from '../../utils/apiCall';
 export const uploadImage = async (data1) => {
     try {
         console.log(data1, "data");
-        const {data}= await userApi.post('/post', data1, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}= await userApi.post('/post', data1)
       if(data.success){
         toast.success(data.message);
         return data.success
@@ -21,12 +16,7 @@ export const uploadImage = async (data1) => {
 
 export const getAllPosts=async ()=>{
     try {
-        const {data}=await userApi.get('/get-all-posts',{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.get('/get-all-posts')
         if(data.success){
             return data.data
         }
@@ -51,12 +41,7 @@ try {
 
 export const savePost=async(postId)=>{
     try {
-        const {data}=await userApi.put('/save-post',postId,{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.put('/save-post',postId)
         return data.success
     } catch (error) {
         
@@ -65,12 +50,7 @@ export const savePost=async(postId)=>{
 
 export const getAllSavedPost=async()=>{
     try {
-        const {data}=await userApi.get('/all-save-post',{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.get('/all-save-post')
         if(data.success){
             return data.data
         }
@@ -81,12 +61,7 @@ export const getAllSavedPost=async()=>{
 
 export const deleteOnePost=async(postId)=>{
     try {
-        const {data}=await userApi.delete(`/delete-post/${postId}`,{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.delete(`/delete-post/${postId}`)
         return data.success
     } catch (error) {
         
@@ -95,12 +70,7 @@ export const deleteOnePost=async(postId)=>{
 
 export const editPost=async(editPostData)=>{
     try {
-        const {data}=await userApi.put('/edit-post',editPostData,{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.put('/edit-post',editPostData)
         if(data.success){
             toast.success(data.message);
             return data.success
@@ -143,12 +113,7 @@ export const uploadShorts = async (data1) => {
 
 export const getAllShorts=async ()=>{
     try {
-        const {data}=await userApi.get('/get-all-shorts',{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const {data}=await userApi.get('/get-all-shorts')
         if(data.success){
             return data.data
         }

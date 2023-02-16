@@ -6,12 +6,7 @@ import { cloudApi, userApi } from '../../utils/apiCall';
 export const getUserProfile = async (id) => {
   try {
     console.log(id, 'prodilegeting id');
-    const { data } = await userApi.get(`/get-user-profile/${id}`, {
-      withCredentials: true,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
+    const { data } = await userApi.get(`/get-user-profile/${id}`)
     if (data.success) {
       return data
     }
@@ -34,12 +29,7 @@ export const uploadImage = async (image) => {
 
 export const updateUserProfile = async (userInfo) => {
   try {
-    const { data } = await userApi.put('/update-user-profile', userInfo, {
-      withCredentials: true,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
+    const { data } = await userApi.put('/update-user-profile', userInfo)
     if (data.success) {
       toast.success(data.message);
       return data.data
@@ -54,12 +44,7 @@ export const updateUserProfile = async (userInfo) => {
 export const searchUserList = async (searchData) => {
 try {
   console.log(searchData);
-  const { data } = await userApi.post('/search-users', { searchData },  {
-    withCredentials: true,
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    },
-  })
+  const { data } = await userApi.post('/search-users', { searchData })
   console.log(data, "searchData");
   return data
 } catch (error) {
@@ -69,24 +54,14 @@ try {
 
 export const setPrivateAccount=async()=>{
   try {
-    const { data } = await userApi.put('/set-private-account',{}, {
-      withCredentials: true,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
+    const { data } = await userApi.put('/set-private-account',{})
   } catch (error) {
     
   }
 }
 
 export const getAllNotifications = async () => {
-  const { data } = await userApi.get("/get-all-notifications",  {
-    withCredentials: true,
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    },
-  });
+  const { data } = await userApi.get("/get-all-notifications");
   if(data.success){
       console.log(data.data,'notiffications');
       return data.data
@@ -98,14 +73,7 @@ export const getAllNotifications = async () => {
 export const suggestionUsers = async () => {
   try {
     const { data } = await userApi.get(
-      "/suggestion-users",
-      {
-        withCredentials: true,
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    );
+      "/suggestion-users");
     return data.data
 
   }catch (error) {

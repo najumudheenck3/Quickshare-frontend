@@ -3,12 +3,7 @@ import { userApi } from '../../utils/apiCall';
 
 export const postComment = async (postId, comment) => {
     try {
-        const { data } = await userApi.post(`/post-comment/${postId}`, { comment }, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.post(`/post-comment/${postId}`, { comment })
         if (data.success) {
             const theComment = {
                 ...data.comment,
@@ -27,12 +22,7 @@ export const postComment = async (postId, comment) => {
 
 export const fetchComments = async (postId) => {
     try {
-        const { data } = await userApi.get(`/all-comments/${postId}`, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.get(`/all-comments/${postId}`)
         if (data.success) {
             console.log(data.comments, 'hook ileakk povanullath');
             return data.comments
@@ -44,12 +34,7 @@ export const fetchComments = async (postId) => {
 
 export const postCommentReply = async (commentId, replyComment) => {
     try {
-        const { data } = await userApi.post(`/post-reply-comment/${commentId}`, { replyComment }, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.post(`/post-reply-comment/${commentId}`, { replyComment })
         if(data.success){
             const theReplyComment={
                 ...data.replyComment,
@@ -69,12 +54,7 @@ export const postCommentReply = async (commentId, replyComment) => {
 export const getAllCommentReplies = async (commentId) => {
 
     try {
-        const { data } = await userApi.get(`/all-comment-replies/${commentId}`, {
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        })
+        const { data } = await userApi.get(`/all-comment-replies/${commentId}`)
         if (data.success) {
             return data.commentsReplies
         }
@@ -86,12 +66,7 @@ export const getAllCommentReplies = async (commentId) => {
 
 export const likePostComment=async(commentId)=>{
     try {
-        const {data}=await userApi.put(`/like-comment/${commentId}`,{},{
-            withCredentials: true,
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        }) 
+        const {data}=await userApi.put(`/like-comment/${commentId}`,{}) 
     } catch (error) {
         
     }
