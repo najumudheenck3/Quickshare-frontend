@@ -21,12 +21,20 @@ const PostDetailChart = ({postGraphCategories,postGraphData}) => {
       return (
         <div className="flex flex-col w-full  content-center justify-center p-5 gap-y-5">
           <h1 className="text-center text-2xl font-bold">Post Details </h1>
-          <div className="mx-auto">
+          <div className="mx-auto max-md:hidden">
           <Chart 
             options={state.options}
             series={state.series}
             type="line"
             width="600"
+          />
+          </div>
+          <div className="mx-auto md:hidden">
+          <Chart 
+            options={state.options}
+            series={state.series}
+            type="line"
+            width="300"
           />
           </div>
         </div>

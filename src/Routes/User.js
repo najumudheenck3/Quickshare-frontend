@@ -18,6 +18,7 @@ import Request from '../components/user/request/Request'
 import Shorts from '../components/user/shorts/Shorts'
 import Search from '../pages/user/Search'
 import Settings from '../pages/user/Settings'
+import Error from '../pages/user/Error'
 
 
 const User = () => {
@@ -63,9 +64,13 @@ const User = () => {
       <Routes>
         <Route path="/verify" element={<Verify/>} />
       </Routes>
+      {/* <Routes>
+        <Route path="/*" element={<Error/>} />
+      </Routes> */}
       <Routes>
         <Route path="/messenger" element={<ProtectedRoute><Messenger /></ProtectedRoute>} />
       </Routes>
+     
     </>
   )
 }

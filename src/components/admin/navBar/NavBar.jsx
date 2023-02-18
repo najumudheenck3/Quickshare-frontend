@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <>
     {/* navbar */}
-      <div className="sticky top-0 flex  items-center bg-specclr z-50	justify-between px-8 py-4 h-16 border-b border-l-neutral-800 text-white p-8">
+      <div className="sticky top-0 flex  items-center bg-specclr z-50	justify-between px-8 py-4 h-16 border-b border-l-neutral-800 text-white ">
         {/* left part */}
         <div className="flex items-center	gap-x-4">
           <Link to="/admin">
